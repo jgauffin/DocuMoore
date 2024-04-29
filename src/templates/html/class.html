@@ -1,0 +1,107 @@
+<div class="class">
+    <h1>Class {{cls.name}}</h1>
+    <div class="summary">
+        {{cls.summary}}
+    </div>
+    <div class="definition">
+        <pre><code>class {{cls.name}}</code></pre>
+    </div>
+
+    {{#cls.constr}}
+    <h2>
+        Constructor arguments
+    </h2>
+    <table class="constructor">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#arguments}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{typeName}}</td>
+                <td>{{description}}</td>
+            </tr>
+            {{/arguments}}
+        </tbody>
+    </table>
+    {{/cls.constr}}
+
+    {{#cls.hasProperties}}
+    <h2>
+        Properties
+    </h2>
+    <table class="properties">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#cls.properties}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{typeName}}</td>
+                <td>{{description}}</td>
+            </tr>
+            {{/cls.properties}}
+        </tbody>
+    </table>
+    {{/cls.hasProperties}}
+
+    {{#cls.hasMethods}}
+    <h2>
+        Methods
+    </h2>
+    <table class="methods">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#cls.methods}}
+            <tr>
+                <td><a href="./{{name}}/">{{name}}</a></td>
+                <td>{{description}}</td>
+            </tr>
+            {{/cls.methods}}
+        </tbody>
+    </table>
+    {{/cls.hasMethods}}
+
+    {{#cls.hasCallbacks}}
+    <h2>
+        Callbacks
+    </h2>
+    <table class="callbacks">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#cls.callbacks}}
+            <tr>
+                <td><a href="./{{name}}/">{{name}}</a></td>
+                <td>{{description}}</td>
+            </tr>
+            {{/cls.callbacks}}
+        </tbody>
+    </table>
+    {{/cls.hasCallbacks}}
+
+
+    {{#cls.example}}
+    <h2>Example</h2>
+    <pre><code>{{cls.example}}</code></pre>
+    {{/cls.example}}
+</div>

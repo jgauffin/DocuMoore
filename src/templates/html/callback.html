@@ -1,0 +1,34 @@
+<div class="callback">
+    <h1>Callback {{callback.name}}</h1>
+    <div class="summary">
+        {{callback.summary}}
+    </div>
+    <div class="definition">
+        <pre><code>{{callback.name}}: (<span class="comma-list">{{#callback.arguments}}{{name}}: {{typeName}}{{/callback.arguments}}</span>) =&gt; {{callback.returnType}}</code></pre>
+    </div>
+    <h2>
+        Arguments
+    </h2>
+    <table class="arguments">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#callback.arguments}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{typeName}}</td>
+                <td>{{description}}</td>
+            </tr>
+            {{/#callback.arguments}}
+        </tbody>
+    </table>
+    {{callback.example}}
+    <h2>Example</h2>
+    <pre><code>{{callback.example}}</code></pre>
+    {{/callback.example}}
+</div>

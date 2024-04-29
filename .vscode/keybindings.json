@@ -1,0 +1,10 @@
+[
+    {
+        "key": "ctrl+shift.r",
+        "command": "workbench.action.tasks"
+    },
+    {
+        "key": "alt+r",
+        "command": "workbench.action.tasks.build"
+    }
+]

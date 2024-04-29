@@ -1,0 +1,102 @@
+<div class="module">
+    <h1>Module {{module.name}}</h1>
+    <div class="summary">
+        {{module.summary}}
+    </div>
+
+    <h2>
+        Classes
+    </h2>
+    {{#hasClasses}}
+    <table class="classes">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#module.classes}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{description}}</td>
+            </tr>
+            {{/module.classes}}
+        </tbody>
+    </table>
+    {{/hasClasses}}
+
+    {{#hasInterfaces}}
+    <h2>
+        Interfaces
+    </h2>
+    <table class="classes">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#module.classes}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{description}}</td>
+            </tr>
+            {{/module.classes}}
+        </tbody>
+    </table>
+    {{/hasInterfaces}}
+
+    {{#hasProperties}}
+    <h2>
+        Properties
+    </h2>
+    <table class="properties">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#module.properties}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{typeName}}</td>
+                <td>{{description}}</td>
+            </tr>
+            {{/module.properties}}
+        </tbody>
+    </table>
+    {{/hasProperties}}
+
+    {{#hasMethods}}
+    <h2>
+        Methods
+    </h2>
+    <table class="methods">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#module.methods}}
+            <tr>
+                <td><a href="./{{name}}/">{{name}}</a></td>
+                <td>{{description}}</td>
+            </tr>
+            {{/module.methods}}
+        </tbody>
+    </table>
+    {{/hasMethods}}
+
+
+    {{#module.example}}
+    <h2>Example</h2>
+    <pre><code>{{module.example}}</code></pre>
+    {{/module.example}}
+</div>

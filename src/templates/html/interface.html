@@ -1,0 +1,57 @@
+<div class="interface">
+    <h1>Interface {{interface.name}}</h1>
+    <div class="summary">
+        {{interface.summary}}
+    </div>
+    <div class="definition">
+        <pre><code>interface {{interface.name}}(<span class="comma-list">{{#interface.arguments}}{{name}}: {{typeName}}{{/interface.arguments}}</span>) : {{interface.returnType}}</code></pre>
+    </div>
+   
+    <h2>
+        Properties
+    </h2>
+    <table class="properties">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#interface.properties}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{typeName}}</td>
+                <td>{{description}}</td>
+            </tr>
+            {{/#interface.properties}}
+        </tbody>
+    </table>
+
+    <h2>
+        Methods
+    </h2>
+    <table class="methods">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#interface.methods}}
+            <tr>
+                <td><a href="./{{name}}/">{{name}}</a></td>
+                <td>{{description}}</td>
+            </tr>
+            {{/#interface.methods}}
+        </tbody>
+    </table>
+
+
+    {{interface.example}}
+    <h2>Example</h2>
+    <pre><code>{{interface.example}}</code></pre>
+    {{/interface.example}}
+</div>

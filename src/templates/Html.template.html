@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 16px">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="Author" content="Jonas Gauffin" />
+    <meta name="Description" content="Default theme for Documoore =]" />
+    <title>Module: color/mixer</title>
+
+    <style>
+      .flex-grid {
+        display: flex;
+      }
+      .col {
+        flex: 1;
+      }
+
+      /* Break on mobile? */
+      @media (max-width: 400px) {
+        .flex-grid {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-grid">
+      <div class="col" id="sidebar">
+        {{docTitle}}
+      </div>
+      <div class="col">
+        {{pageTitle}}
+        <div class="flex-grid">
+          <main class="col">
+
+          </main>
+          <div class="col"></div>
+        </div>
+  
+      </div>
+    </div>
+  </body>
+</html>

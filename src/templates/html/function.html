@@ -1,0 +1,34 @@
+<div class="function">
+    <h1>Function {{function.name}}</h1>
+    <div class="summary">
+        {{function.summary}}
+    </div>
+    <div class="definition">
+        <pre><code>function {{function.name}}(<span class="comma-list">{{#function.arguments}}{{name}}: {{typeName}}{{/function.arguments}}</span>) : {{function.returnType}}</code></pre>
+    </div>
+    <h2>
+        Arguments
+    </h2>
+    <table class="arguments">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#function.arguments}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{typeName}}</td>
+                <td>{{description}}</td>
+            </tr>
+            {{/#function.arguments}}
+        </tbody>
+    </table>
+    {{function.example}}
+    <h2>Example</h2>
+    <pre><code>{{function.example}}</code></pre>
+    {{/function.example}}
+</div>
