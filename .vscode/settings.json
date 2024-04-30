@@ -1,7 +1,15 @@
 {
-  "files.exclude": {
-    "**/*.js": { "when": "$(basename).ts" },
-    "**/**.js": { "when": "$(basename).tsx" }
-  },
-  "typescript.tsdk": "/usr/local/lib/node_modules/typescript/lib"
+    "files.exclude": {
+        "**/*.js": { "when": "$(basename).ts" },
+        "**/**.js": { "when": "$(basename).tsx" }
+    },
+    "typescript.tsdk": "/usr/local/lib/node_modules/typescript/lib",
+    "[typescript]": {
+        "editor.formatOnPaste": false,
+        "editor.formatOnSave": false
+    },
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+    "eslint.lintTask.enable": true
 }

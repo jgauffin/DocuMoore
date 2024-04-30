@@ -1,9 +1,8 @@
 import ts from "typescript";
-import { findChildIndex, printAllChildren } from "./nodes";
-import { printRecusivly } from "./log";
+import { findChildIndex } from "./nodes";
 
 export function getDocNode(node: ts.Node): ts.JSDoc | null {
-    var index = findChildIndex(node, ts.SyntaxKind.JSDoc);
+    const index = findChildIndex(node, ts.SyntaxKind.JSDoc);
     if (index === null) {
         node.getChildren().forEach(x=>console.log(x.kind == ts.SyntaxKind.JSDoc));
         console.log('##no docs');

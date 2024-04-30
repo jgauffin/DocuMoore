@@ -13,7 +13,7 @@ export function findChildRecursive(
     });
   
     node.getChildren().forEach((child) => {
-      var result = findChildRecursive(child, nodeType);
+      const result = findChildRecursive(child, nodeType);
       if (result) {
         nodeToReturn = result;
       }
@@ -23,18 +23,19 @@ export function findChildRecursive(
   }
   
   export function findChildIndex(parent: ts.Node, kind: ts.SyntaxKind): number {
-    var index = parent.getChildren().findIndex((x) => x.kind == kind);
+    const index = parent.getChildren().findIndex((x) => x.kind == kind);
     return index == -1 ? null : index;
   }
   
-  export function findChild<T>(parent: ts.Node, kind: ts.SyntaxKind): T | null {
-    var index = parent.getChildren().findIndex((x) => x.kind == kind);
+  export function findChild<T extends ts.Node>(parent: ts.Node, kind: ts.SyntaxKind): T  | null {
+    const index = parent.getChildren().findIndex((x) => x.kind == kind);
     return index == -1 ? null : <T>parent.getChildAt(index);
   }
   
   export function printAllChildren(node: ts.Node, depth = 0) {
     if (node.kind == ts.SyntaxKind.FunctionDeclaration) {
-      var fun = <ts.FunctionDeclaration>node;
+      const fun = <ts.FunctionDeclaration>node;
+      console.log('## func not used,', fun);
     }
   
     console.log(
@@ -49,7 +50,7 @@ export function findChildRecursive(
   }
   
   export function getTypeNameFromNode(type: ts.Node) {
-    var typeName = "";
+    let typeName = "";
     switch (type.kind) {
       case ts.SyntaxKind.StringKeyword:
         typeName = "string";
@@ -61,7 +62,7 @@ export function findChildRecursive(
         typeName = (<ts.TypeReferenceNode>type).typeName.getText();
         break;
       default:
-        console.log("IIIIPS", type.kind);
+        console.log("UNKNOWN TYPE NAME", ts.SyntaxKind[type.kind]);
         break;
     }
     return typeName;

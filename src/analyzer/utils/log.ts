@@ -1,5 +1,6 @@
 import ts from "typescript";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function printRecusivly(obj: any, path: any[] = [], depth: number = 0, wrap: boolean = false) {
     if (path.includes(obj)){
         console.log('recursicve');
@@ -12,10 +13,10 @@ export function printRecusivly(obj: any, path: any[] = [], depth: number = 0, wr
       depth++;
     }
   
-    for (var key in obj) {
-      if (!obj.hasOwnProperty(key)) continue; // skip this property
+    for (const key in obj) {
+      if (!Object.prototype.hasOwnProperty.call(obj, key)) continue; // skip this property
   
-      var value = obj[key];
+      const value = obj[key];
       if (value === undefined || value === null){
         continue;
       }

@@ -1,35 +1,36 @@
-
 export class FunctionDocs {
-    constructor(public name: string, public docuId: string) {}
+    constructor(
+        public name: string,
+        public docuId: string
+    ) {}
     remarks?: string;
     summary?: string;
     arguments: ArgumentDocs[] = [];
     returnType: string;
     returnSummary?: string;
     tags: Map<string, string> = new Map();
-  }
-  
-  export class ArgumentDocs {
-    constructor(
-      public name: string,
-      public typeName: string,
-      public summary: string
-    ) {}
-  }
-  
-  export class PropertyDocs {
-    constructor(
-      public name: string,
-      public typeName: string,
-      public summary?: string
-    ) {}
-  }
-  
-  /**
-   * Interface for shared structure for classes and interfaces.
-   */
-  export interface TypeDoc {
+}
 
+export class ArgumentDocs {
+    constructor(
+        public name: string,
+        public typeName: string,
+        public summary: string
+    ) {}
+}
+
+export class PropertyDocs {
+    constructor(
+        public name: string,
+        public typeName: string,
+        public summary?: string
+    ) {}
+}
+
+/**
+ * Interface for shared structure for classes and interfaces.
+ */
+export interface TypeDoc {
     /**
      * All exported functions.
      */
@@ -54,43 +55,53 @@ export class FunctionDocs {
      * Class documentation.
      */
     summary?: string;
-  }
+}
 
-  /**
-   * 
-   */
-  export class InterfaceDoc implements TypeDoc {
-    constructor(public name: string, public summary?: string) {}
+/**
+ *
+ */
+export class InterfaceDoc implements TypeDoc {
+    constructor(
+        public name: string,
+        public summary?: string
+    ) {}
     functions: FunctionDocs[] = [];
     callbacks: FunctionDocs[] = [];
     properties: PropertyDocs[] = [];
-  }
+}
 
-  /**
-   * A documented class.
-   */
-  export class ClassDoc implements TypeDoc {
-    constructor(public name: string, public summary?: string) {}
+/**
+ * A documented class.
+ */
+export class ClassDoc implements TypeDoc {
+    constructor(
+        public name: string,
+        public summary?: string
+    ) {}
     classDoc: globalThis.Function;
     constr?: FunctionDocs;
     functions: FunctionDocs[] = [];
     callbacks: FunctionDocs[] = [];
     properties: PropertyDocs[] = [];
-  }
- 
+}
 
-  /**
-   * Module documentation.
-   * 
-   * Includes everything defined directly in the module, including exports.
-   * Exports with aliases are exported through the @see modules property.
-   */
-  export class ModuleDoc {
-    constructor(public directory: string, public filename: string){
+/**
+ * Module documentation.
+ *
+ * Includes everything defined directly in the module, including exports.
+ * Exports with aliases are exported through the @see modules property.
+ */
+export class ModuleDoc {
+    /**
+     *
+     * @param directory Directory that contains the source file.
+     * @param filename Filename for the module that this is documentation for.
+     */
+    constructor(
+        public directory: string,
+        public filename: string
+    ) {}
 
-    }
-
-    
     /**
      * Exported functions.
      */
@@ -116,11 +127,10 @@ export class FunctionDocs {
      */
     interfaces: InterfaceDoc[] = [];
 
-
     /**
      * Modules defined through exports with aliases.
-     * 
+     *
      * @example export * as moduleName from "./someFile";
      */
-    modules: ModuleDoc[]=[];
-  }
+    modules: ModuleDoc[] = [];
+}
